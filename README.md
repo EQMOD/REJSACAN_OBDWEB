@@ -34,6 +34,14 @@ Transparent UIs with a LIVE CAMERA FEED on the webpage background is also possib
 ![image](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/92e0deb7-28c5-4523-9fd6-6baa8f7f16f6)
 
 
+=== Sample Browser side and Dongle Side SDCARD DocRoot files;
+
+https://github.com/EQMOD/REJSACAN_OBDWEB/tree/main/Custom_USERS_WEBUI
+
+https://github.com/EQMOD/REJSACAN_OBDWEB/tree/main/SDCARD
+
+
+
 === Compiling use the Arduino IDE;
 
 The codes is using the standard OBD-II Library (already included in this repository) with a little bit of customization from the original obdII Libraries-
