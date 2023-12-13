@@ -1,5 +1,5 @@
 # REJSACAN_OBDWEB
-A WEB Based OBDII Dongle Platform using the REJSACAN ESP32-S3 OBDII DONGLE
+=== A WEB Based OBDII Dongle Platform using the REJSACAN ESP32-S3 OBDII DONGLE
 
 A REJSACAN OBDII Dongle using the ESP32-S3 with built-in SPIFFF memory is used as a CAN BUS OBDII reader and the data is presented as WEB PAGE using a built-in webserver. The webpage code communicates to the dongle via WiFi and uses websockets to retrieve OBDII data. The platform is using an ESP32 microcontroller which is a dual core mcu with the first core handling the CAN Bus comunications part via SN65HVD230 CAN BUS Transceiver and the 2nd core handling the websocket part. OBDII data is pushed to the UI every 60ms to 100ms for critical data such as rpm and speed, and every 1000ms for not so critical data such as temp, voltage, etc.
 
@@ -12,7 +12,7 @@ https://github.com/MagnusThome/RejsaCAN-ESP32
 ![image](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/d9fb3780-23e6-4935-800e-ecf7336a4d08)
 
 
-The WEB UI assets are stored on the REJSCAN Dongle's SD Card can be customized by a web designer/developer using HTML/JS/CSS/jpg assets;
+=== The WEB UI assets are stored on the REJSCAN Dongle's SD Card can be customized by a web designer/developer using HTML/JS/CSS/jpg assets;
 
 Sample UIs;
 
@@ -27,7 +27,7 @@ Transparent UIs with a LIVE CAMERA FEED on the webpage background is also possib
 ![image](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/92e0deb7-28c5-4523-9fd6-6baa8f7f16f6)
 
 
-Compiling use the Arduino IDE;
+=== Compiling use the Arduino IDE;
 
 The codes is using the standard OBD-II Library (already included in this repository) with a little bit of customization from the original obdII Libraries-
 
@@ -48,6 +48,11 @@ One Library file from SDFat needs to be modified in order for SDFat to work on t
 
 This is a little bit tricky as you need to add the above entry on the SdFatConfig.h file each time you compile the above codes on the REJSACan Dongle
 and needs to be commented out if the above library will compiled with your other ESP32 based projects.
+
+=== Suggested ARDUINO IDE settings for the compile and code upload/flashing;
+
+<img width="360" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/66c3d260-7b04-4fa4-88ab-9e0a2fb32bbd">
+
 
 
 
