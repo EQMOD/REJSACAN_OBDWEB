@@ -27,6 +27,34 @@ Transparent UIs with a LIVE CAMERA FEED on the webpage background is also possib
 ![image](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/92e0deb7-28c5-4523-9fd6-6baa8f7f16f6)
 
 
+Compiling use the Arduino IDE;
+
+The codes is using the standard OBD-II Library (already included in this repository) with a little bit of customization from the original obdII Libraries-
+
+Rewritten from sandeepmistry/arduino-OBD2 to instead depend on the ESP32 CAN libraries
+
+https://github.com/collin80/esp32_can 
+https://github.com/collin80/can_common 
+
+that support ESP32 with TWAI. 
+
+The code is also using the SDFat Library from Greiman. The SdFat library supports FAT16, FAT32, and exFAT file systems on Standard SD, SDHC, and SDXC cards.
+
+https://github.com/greiman/SdFat
+
+One Library file from SDFat needs to be modified in order for SDFat to work on the REJSACAN SD Card Slot;
+
+<img width="288" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/3bbd7484-b041-444f-988c-e3554efc774d">
+
+This is a little bit tricky as you need to add the above entry on the SdFatConfig.h file each time you compile the above codes on the REJSACan Dongle
+and needs to be commented out if the above library will compiled with your other ESP32 based projects.
+
+
+
+
+
+
+
 
 
 
