@@ -5,6 +5,13 @@ A REJSACAN OBDII Dongle using the ESP32-S3 with built-in SPIFFF memory is used a
 
 The platform code is using ESP32 RTOS for the multi core multi tasking component. That's basically an OBDII with a webserver running inside that dongle which is attached to the car's obd port. And literally you can read every car metric data and show it on the car infotainment / Web browser / Phone app with customizable fancy UI stuff (gauges, graphs, etc.) using standard HTML/JS/CSS/JPG renders.
 
+Any web browser client can connect to the dongle via WIFI with the OBD-II dongle acting as a Wifi Hotspot. Wifi credentials are embedded on the code.
+
+Webserver entry point / homepage is ;
+
+http://192.168.0.10/index.html
+
+
 The OBDII Dongle with the built-in ESP32-S3 micrcontroller is designed by Magnus Thome and details can be found here;
 
 https://github.com/MagnusThome/RejsaCAN-ESP32
@@ -52,6 +59,9 @@ and needs to be commented out if the above library will compiled with your other
 === Suggested ARDUINO IDE settings for the compile and code upload/flashing;
 
 <img width="360" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/66c3d260-7b04-4fa4-88ab-9e0a2fb32bbd">
+
+
+=== Access via WIFI-ELM327 is also possible through the TORQUE app for example. Codes included
 
 
 
