@@ -67,7 +67,7 @@ const int8_t DISABLE_CS_PIN = -1;
 
 
 #define MAXFILESIZE 40000
-#define MAXFILESIZE2 65000
+#define MAXFILESIZE2 300000
 #define FLASHSIZE 512
 
 #define BLINK2  2
@@ -400,7 +400,7 @@ void SD_LoadSPIFF(const char * dirname, uint8_t levels){
                         strcat(fullpath,"/");
                 strcat(fullpath,filename);
             
-                char  *sd_data = (char* ) malloc(MAXFILESIZE2 * sizeof(char));
+                char  *sd_data = (char* ) ps_malloc(MAXFILESIZE2 * sizeof(char));
 
                 len = SDreadFile(fullpath,  (uint8_t *) sd_data  );
 
@@ -606,7 +606,7 @@ static esp_err_t page_handler(httpd_req_t *req){
   
     buf_len = httpd_req_get_url_query_len(req) + 1;
     if (buf_len > 1) {
-        buf = (char*)malloc(buf_len);
+        buf = (char*)ps_malloc(buf_len);
         if(!buf){
             httpd_resp_send_500(req);
             return ESP_FAIL;
@@ -634,7 +634,7 @@ static esp_err_t page_handler(httpd_req_t *req){
 
     Serial.printf("Page: %s %s \n", variable,value);
 
-    char  *sd_data = (char* ) malloc(MAXFILESIZE2 * sizeof(char));
+    char  *sd_data = (char* ) ps_malloc(MAXFILESIZE2 * sizeof(char));
 
     if(strcmp(variable, "file") == 0) 
     {
@@ -715,7 +715,7 @@ static esp_err_t index_handler(httpd_req_t *req){
   //Serial.printf("index request\n");
   Serial.print("INDEX HANDLER running on core "); Serial.println(xPortGetCoreID());
 
-  char  *sd_data = (char* ) malloc(MAXFILESIZE * sizeof(char));
+  char  *sd_data = (char* ) ps_malloc(MAXFILESIZE * sizeof(char));
   len = readFile( "/index.html", (uint8_t *) sd_data  );
   httpd_resp_set_type(req, "text/html");
  // httpd_resp_set_hdr(req, "Content-Encoding", "gzip");
@@ -732,7 +732,7 @@ static esp_err_t script_handler(httpd_req_t *req){
   int len;
   esp_err_t resp;
 
-  char  *sd_data = (char* ) malloc(MAXFILESIZE * sizeof(char));
+  char  *sd_data = (char* ) ps_malloc(MAXFILESIZE * sizeof(char));
   httpd_resp_set_type(req, "text/javascript");
   //httpd_resp_set_hdr(req, "Content-Encoding", "gzip");
     httpd_resp_set_hdr(req, "cache-control", MAXAGEVAL);
@@ -749,7 +749,7 @@ static esp_err_t css_handler(httpd_req_t *req){
   int len;
   esp_err_t resp;
 
-  char  *sd_data = (char* ) malloc(MAXFILESIZE * sizeof(char));
+  char  *sd_data = (char* ) ps_malloc(MAXFILESIZE * sizeof(char));
   httpd_resp_set_type(req, "text/css");
   //httpd_resp_set_hdr(req, "Content-Encoding", "gzip");
     httpd_resp_set_hdr(req, "cache-control", MAXAGEVAL);
@@ -772,7 +772,7 @@ static esp_err_t jquery_handler(httpd_req_t *req){
     httpd_resp_set_hdr(req, "etag", ETAGVAL);
   httpd_resp_set_hdr(req, "Connection", "close");
 
-  char  *sd_data = (char* ) malloc(MAXFILESIZE * sizeof(char));
+  char  *sd_data = (char* ) ps_malloc(MAXFILESIZE * sizeof(char));
    len = readFile( "/jquery-min.js.gz", (uint8_t *) sd_data  );
    resp = httpd_resp_send(req, sd_data, len);
    free(sd_data);
@@ -838,7 +838,7 @@ static void  wss_server_send_messages(httpd_handle_t* server)
 
                    if ((fd_cmd[fdofst] != -1) && ((curmillis-fd_curmillis[fdofst]) >= fd_millis[fdofst]))
                    {
-                          struct async_resp_arg *resp_arg = ( async_resp_arg *) malloc(sizeof(struct async_resp_arg));
+                          struct async_resp_arg *resp_arg = ( async_resp_arg *) ps_malloc(sizeof(struct async_resp_arg));
                           resp_arg->hd = *server;
                           resp_arg->fd = sock;
 
@@ -1075,12 +1075,19 @@ int sdflag;
     Serial.printf("Free Clusters:     %d\n",SD.freeClusterCount());
   }
 
-
+  if(psramInit())
+        Serial.println("\nPSRAM is correctly initialized");
+  else
+    {
+        Serial.println("PSRAM not available");
+        blinkX_ok(20);
+    }
+    
   if (sdflag) 
   {
 
 
-      char  *sd_data = (char* ) malloc(MAXFILESIZE * sizeof(char));
+      char  *sd_data = (char* ) ps_malloc(MAXFILESIZE * sizeof(char));
       // LOAD SD card to SPIFFS only if lock.file does not exist
       if (SDreadFile("/lock.file",  (uint8_t *) sd_data  ) < 5)
      {
