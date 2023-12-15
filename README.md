@@ -64,9 +64,16 @@ One Library file from SDFat needs to be modified in order for SDFat to work on t
 This is a little bit tricky as you need to add the above entry on the SdFatConfig.h file each time you compile the above codes on the REJSACan Dongle
 and needs to be commented out if the above library will compiled with your other ESP32 based projects.
 
-=== Suggested ARDUINO IDE settings for the compile and code upload/flashing;
+=== Suggested ARDUINO IDE settings for the compile and code upload/flashing which also include distributing the routines on the 2 cores;
 
-<img width="360" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/66c3d260-7b04-4fa4-88ab-9e0a2fb32bbd">
+<img width="366" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/10399ca8-dacb-40a7-ba07-0c8165594272">
+
+PSRAM Size:
+
+<img width="444" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/7cc459c6-5812-4564-9807-a28a2bfa67d6">
+
+
+
 
 
 === Access via WIFI-ELM327 is also possible through the TORQUE app for example. Codes included
