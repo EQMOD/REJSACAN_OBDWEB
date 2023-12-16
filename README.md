@@ -7,6 +7,16 @@ The platform code is using ESP32 RTOS for the multi core multi tasking component
 
 Any web browser client can connect to the dongle via WIFI with the OBD-II dongle acting as a Wifi Hotspot. Wifi credentials are embedded on the code.
 
+You can add an OPTIONAL JDY08 BLE Module with its own embedded CC2541 micrcontroller ( CC2541 source code included in this repository) for other sensor data 
+reception using BLE Advertisements. Simply drop the cc2541 binary file to the SD Card of the RejsaCAN and the built-in flash codes will burn it to the 
+JDY08 module. Two sample JDY08 bin files are provided - one as VC601 BLE Tire Pressure Receiver/BM2 Battery Monitor (need to change IDs on the code) for TPMS Data and 
+live battery stats (aside from the OBD Module voltage). The other cc2541.bin file is a HM10 BLE UART Bridge where you can use the JDY08 as an ELM327 to UART bridge 
+for TORQUE app communications via BLE.  Codes are also provided under the loop() function for a ELM327-WIFI based communication
+
+
+![Diagram_001 drawio](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/db01d9a6-dcc2-46e3-8ea9-4a343971bc68)
+
+
 Webserver entry point / homepage is ;
 
 http://192.168.0.10/index.html
@@ -73,10 +83,6 @@ PSRAM Size:
 <img width="444" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/7cc459c6-5812-4564-9807-a28a2bfa67d6">
 
 
-
-
-
-=== Access via WIFI-ELM327 is also possible through the TORQUE app for example. Codes included
 
 
 
