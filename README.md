@@ -54,6 +54,10 @@ https://github.com/EQMOD/REJSACAN_OBDWEB/tree/main/SDCARD
 
 === Compiling use the Arduino IDE;
 
+![REJSACAN_OBDWEB_DEV_ENVIRONMENT drawio](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/65bf8059-e694-47bf-baef-7603a10657b7)
+
+
+
 The codes is using the standard OBD-II Library (already included in this repository) with a little bit of customization from the original obdII Libraries-
 
 Rewritten from sandeepmistry/arduino-OBD2 to instead depend on the ESP32 CAN libraries
@@ -82,6 +86,10 @@ PSRAM Size:
 
 <img width="444" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/7cc459c6-5812-4564-9807-a28a2bfa67d6">
 
+=== JDY08 Module customization
+
+As mentioned you can add an OPTIONAL JDY08 mmodule with a Texas Instrument CC2541 BLE Chip. The CC2541 firmware can be customized (source code included here)
+using the IAR Development Environment which you will then create the cc2541.bin file for flashing to the JDY08 module.
 
 
 
