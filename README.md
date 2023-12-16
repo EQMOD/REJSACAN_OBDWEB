@@ -16,6 +16,14 @@ for TORQUE app communications via BLE.  Codes are also provided under the loop()
 
 ![Diagram_001 drawio](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/db01d9a6-dcc2-46e3-8ea9-4a343971bc68)
 
+=== JDY08 and RejsaCAN v3.4 Board Connection Diagram
+
+![Diagram_002 drawio](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/647d1e6b-39b6-4758-bd11-6b4cddd439fd)
+
+
+
+====================================
+
 
 Webserver entry point / homepage is ;
 
