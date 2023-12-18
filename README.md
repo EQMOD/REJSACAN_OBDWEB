@@ -97,7 +97,20 @@ PSRAM Size:
 === JDY08 Module customization
 
 As mentioned you can add an OPTIONAL JDY08 mmodule with a Texas Instrument CC2541 BLE Chip. The CC2541 firmware can be customized (source code included here)
-using the IAR Development Environment which you will then create the cc2541.bin file for flashing to the JDY08 module.
+using the IAR Development Environment which you will then create the cc2541.bin file for flashing to the JDY08 module. One sample use of the attached JDY08 is 
+a realtime Serial Console Logger where you can monitor/debug your app on the dongle while attached to the car's OBD Port;
+
+<img width="375" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/fd96d021-1fb5-4463-b0eb-17ff63aaeb0c">
+
+Sample Dongle codes here;
+
+https://github.com/EQMOD/REJSACAN_OBDWEB/tree/main/src/RJA_OBDONLY_ESP32S3_JDY08_001
+
+HM10 BLE UART Firmware file for the JDY-08
+
+https://github.com/EQMOD/REJSACAN_OBDWEB/tree/main/JDY08_bin_src/HM10_BLE_UART
+
+
 
 
 
