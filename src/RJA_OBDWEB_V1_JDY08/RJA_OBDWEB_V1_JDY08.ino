@@ -51,7 +51,7 @@
 #define CC2541Timeout 10          // Readtimeout per 100ms
 
 
-#define CANACTIVITYCOUNT 2
+#define CANACTIVITYCOUNT 5
 #define CANNOPACKETCOUNT 10
 
 #define OBDCMDSIZ     10
@@ -141,7 +141,7 @@ QueueHandle_t queue_T1s;
 QueueHandle_t queue_T1r;
 
 uint8_t OBD_headerflag = 0;
-
+uint8_t OBD_activityerrcounter = 0;
 
 void print_wakeup_reason(){
   esp_sleep_wakeup_cause_t wakeup_reason;
@@ -334,15 +334,19 @@ void GetPIDs(int ofst) {
     {
        if (isnan(pidValue))
        {
-            delay(1000);
+            OBD_activityerrcounter++;
             pidValue = (float) OBD2.pidRead(pid);
-            if (isnan(pidValue))
+            if ((isnan(pidValue)) && (OBD_activityerrcounter > CANACTIVITYCOUNT))
             {
-
+                 // Serial.println(F("piDERROR"));
                   ESP.restart();    // Force boot
 
             }
-       } 
+       }
+       else
+         OBD_activityerrcounter=0;
+
+ 
     }
 
   if (!isnan(pidValue))
