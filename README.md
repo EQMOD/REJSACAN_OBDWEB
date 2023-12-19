@@ -20,6 +20,12 @@ for TORQUE app communications via BLE.  Codes are also provided under the loop()
 
 ![Diagram_002 drawio](https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/647d1e6b-39b6-4758-bd11-6b4cddd439fd)
 
+=== Serial Console when a cc2541.bin file is present on the SD Card. File is flashed to the JDY08 module then deleted from the SD Card
+
+<img width="950" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/e5789219-7b06-450d-879c-e5a0291bfb97">
+
+<img width="365" alt="image" src="https://github.com/EQMOD/REJSACAN_OBDWEB/assets/29789200/6fd73243-c9d0-456f-a16c-cb30d4c14a6e">
+
 
 
 ====================================
